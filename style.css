@@ -1,0 +1,91 @@
+/* Importando a fonte do Google Fonts */
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    background-color: #162447;
+    padding: 30px 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border: 3px solid #0f3460;
+}
+
+h1 {
+    color: #e94560;
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #e94560;
+}
+
+.scoreboard {
+    margin-bottom: 30px;
+    font-size: 1.5em;
+}
+
+.choices form {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+button, .reset-button {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #e94560;
+    color: #fff;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover, .reset-button:hover {
+    background-color: #f06a85;
+    transform: translateY(-3px);
+}
+
+.result {
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+.result .winner-text {
+    font-size: 1.5em;
+    color: #50c878; /* Verde para o vencedor */
+    font-weight: bold;
+}
+
+.game-over {
+    margin-top: 20px;
+}
+
+.game-over p {
+    font-size: 1.8em;
+    color: #f9a826;
+}
+
+input[type="text"] {
+    font-family: "Pixelify Sans", sans-serif;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #0f3460;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    margin-right: 10px;
+}

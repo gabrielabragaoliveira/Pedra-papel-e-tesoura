@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Jokenpô!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Pedra, Papel ou Tesoura</h1>
+        
+        <div class="scoreboard">
+            <h2>PLACAR</h2>
+            <p>{{ session.nome_jogador }}: {{ session.vitorias_jogador }} x {{ session.vitorias_computador }} :Computador</p>
+        </div>
+
+        {% if session.vitorias_jogador >= 2 or session.vitorias_computador >= 2 %}
+            <div class="game-over">
+                <h2>Fim de Jogo!</h2>
+                {% if session.vitorias_jogador > session.vitorias_computador %}
+                    <p>Parabéns, {{ session.nome_jogador }}! Você venceu!</p>
+                {% else %}
+                    <p>O Computador venceu. Tente novamente!</p>
+                {% endif %}
+                <a href="/reset" class="reset-button">Jogar Novamente</a>
+            </div>
+        {% else %}
+            <div class="choices">
+                <form action="/play" method="post">
+                    <button type="submit" name="choice" value="pedra">Pedra</button>
+                    <button type="submit" name="choice" value="papel">Papel</button>
+                    <button type="submit" name="choice" value="tesoura">Tesoura</button>
+                </form>
+            </div>
+
+            {% if vencedor %}
+            <div class="result">
+                <h3>Resultado da Rodada:</h3>
+                <p>Você escolheu: <strong>{{ player_choice }}</strong></p>
+                <p>O computador escolheu: <strong>{{ computer_choice }}</strong></p>
+                <p class="winner-text">
+                    {% if vencedor == 'Empate' %}
+                        Deu empate!
+                    {% else %}
+                        Vencedor: {{ vencedor }}!
+                    {% endif %}
+                </p>
+            </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
